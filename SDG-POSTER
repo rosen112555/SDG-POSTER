@@ -1,0 +1,83 @@
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+
+    @Override
+    public void start(Stage stage) {
+
+        Label title = new Label("SDG GOAL 6");
+        title.setStyle(
+            "-fx-font-size: 36px;" +
+            "-fx-font-weight: bold;" +
+            "-fx-text-fill: darkblue;"
+        );
+
+        Label subtitle = new Label("CLEAN WATER AND SANITATION");
+        subtitle.setStyle(
+            "-fx-font-size: 22px;" +
+            "-fx-font-weight: bold;" +
+            "-fx-text-fill: blue;"
+        );
+
+        Label message = new Label(
+            "Ensure availability and sustainable management\n" +
+            "of water and sanitation for all."
+        );
+        message.setStyle("-fx-font-size: 17px;");
+
+        Label tips = new Label(
+            "HOW CAN WE HELP?\n\n" +
+            "✓ Turn off taps when not in use\n" +
+            "✓ Avoid wasting drinking water\n" +
+            "✓ Keep water sources clean\n" +
+            "✓ Use water responsibly"
+        );
+        tips.setStyle("-fx-font-size: 16px;");
+
+        Button button = new Button("MAKE A PLEDGE");
+
+        button.setStyle(
+            "-fx-background-color: #1976D2;" +
+            "-fx-text-fill: white;" +
+            "-fx-font-weight: bold;" +
+            "-fx-font-size: 14px;"
+        );
+
+        button.setOnAction(e -> {
+            message.setText(
+                "Thank you for helping to save water!\n" +
+                "EVERY DROP COUNTS!"
+            );
+        });
+
+        VBox root = new VBox(
+            20,
+            title,
+            subtitle,
+            message,
+            tips,
+            button
+        );
+
+        root.setAlignment(Pos.CENTER);
+        root.setPadding(new Insets(30));
+        root.setStyle("-fx-background-color: #E3F2FD;");
+
+        Scene scene = new Scene(root, 600, 650);
+
+        stage.setTitle("SDG Goal 6 Poster");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
